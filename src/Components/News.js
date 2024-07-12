@@ -24,9 +24,9 @@ export class News extends Component {
       },
       "author": "The Times of India",
       "title": "Mumbai BMW hit-and-run case: Juhu bar's license suspended for serving liquor to 23-year-old accused Mihir - The Times of India",
-      "description": null,
+      "description": "The state excise administration has suspended the license of a Juhu-Tara Road bar that served hard liquor to Mihir Shah, who had not yet attained the age of 25 years. This is a basic criterion for serving or drinking",
       "url": "https://news.google.com/rss/articles/CBMisAFodHRwczovL3RpbWVzb2ZpbmRpYS5pbmRpYXRpbWVzLmNvbS9pbmRpYS9tdW1iYWktYm13LWhpdC1hbmQtcnVuLWNhc2UtanVodS1iYXJzLWxpY2Vuc2Utc3VzcGVuZGVkLWZvci1zZXJ2aW5nLWxpcXVvci10by0yMy15ZWFyLW9sZC1hY2N1c2VkLW1paGlyLXNoYWgvYXJ0aWNsZXNob3cvMTExNjEzNzgwLmNtc9IBtAFodHRwczovL3RpbWVzb2ZpbmRpYS5pbmRpYXRpbWVzLmNvbS9pbmRpYS9tdW1iYWktYm13LWhpdC1hbmQtcnVuLWNhc2UtanVodS1iYXJzLWxpY2Vuc2Utc3VzcGVuZGVkLWZvci1zZXJ2aW5nLWxpcXVvci10by0yMy15ZWFyLW9sZC1hY2N1c2VkLW1paGlyLXNoYWgvYW1wX2FydGljbGVzaG93LzExMTYxMzc4MC5jbXM?oc=5",
-      "urlToImage": null,
+      "urlToImage": "https://miller-ogorchock.com/wp-content/uploads/2016/10/hit-and-run.jpg",
       "publishedAt": "2024-07-09T17:06:00+00:00",
       "content": null
   },
@@ -37,9 +37,9 @@ export class News extends Component {
       },
       "author": "The Hindu",
       "title": "Russia offers compensation and citizenship to kin of Indians killed in Ukraine war - The Hindu",
-      "description": null,
+      "description": "As Russian President Vladimir Putin accepted Prime Minister Narendra Modi’s request for early discharge of Indians hired as security helpers and forced to fight alongside the Russian Army against Ukraine, it has emerged that Moscow is offering a compensation package and citizenship to the families of the deceased.",
       "url": "https://news.google.com/rss/articles/CBMijQFodHRwczovL3d3dy50aGVoaW5kdS5jb20vbmV3cy9uYXRpb25hbC9ydXNzaWEtb2ZmZXJzLWNvbXBlbnNhdGlvbi1hbmQtY2l0aXplbnNoaXAtdG8ta2luLW9mLWluZGlhbnMta2lsbGVkLWluLXVrcmFpbmUtd2FyL2FydGljbGU2ODM4NTE0Ni5lY2XSAZIBaHR0cHM6Ly93d3cudGhlaGluZHUuY29tL25ld3MvbmF0aW9uYWwvcnVzc2lhLW9mZmVycy1jb21wZW5zYXRpb24tYW5kLWNpdGl6ZW5zaGlwLXRvLWtpbi1vZi1pbmRpYW5zLWtpbGxlZC1pbi11a3JhaW5lLXdhci9hcnRpY2xlNjgzODUxNDYuZWNlL2FtcC8?oc=5",
-      "urlToImage": null,
+      "urlToImage": "https://static01.nyt.com/images/2022/03/16/us/politics/16dc-wardead-1/merlin_203726646_845a090f-8ed5-42a5-a179-f57056505fd3-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
       "publishedAt": "2024-07-09T16:26:00+00:00",
       "content": null
   },
@@ -70,18 +70,14 @@ export class News extends Component {
     return (
       <div className='container my-3'>
         <h2>Khabri-top headlines</h2>
+        
           <div className="row">
-              <div className="col-md-4 ">
-              <NewsItem title="myTitle" description="mydesc" ImageUrl="https://live-production.wcms.abc-cdn.net.au/28f964e516f1663c43caa3836fd21f49?impolicy=wcms_watermark_news&cropH=2074&cropW=3687&xPos=0&yPos=39&width=862&height=485&imformat=generic" newsurl="todo"/>
-              </div>
-              <div className="col-md-4 ">
-              <NewsItem title="myTitle" description="mydesc"/>
-              </div>
-              <div className='col-md-4 '>
-              <NewsItem title="myTitle" description="mydesc"/>
-              </div>
-          
-          </div>
+          {this.state.articles.map((element)=>{
+             return <div className="col-md-4 " key={element.url} >
+             <NewsItem title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} ImageUrl={element.urlToImage} newsurl={element.url}/>
+             </div>
+          })}  
+        </div>
         
       </div>
     )

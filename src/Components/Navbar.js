@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {Link} from "react-router-dom";
 
-export class Navbar extends Component {
-  static propTypes = {
-
-  }
-
-  render() {
+const Navbar = () =>{
     return (
       <div>
         <nav className="navbar navbar-expand-lg bg-body-tertiary dark">
@@ -28,31 +23,14 @@ export class Navbar extends Component {
         <li className="nav-item"><Link className="nav-link" to="/science">Sciences</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
         <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
-        {/* <li className="nav-item dropdown">
-          <Link  className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </Link>
-          <ul className="dropdown-menu">
-            <li><Link  className="dropdown-item" to="#">Action</Link></li>
-            <li><Link  className="dropdown-item" to="#">Another action</Link></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><Link  className="dropdown-item" to="#">Something else here</Link></li>
-          </ul>
-        </li> */}
-        {/* <li className="nav-item">
-          <Link  className="nav-link disabled" href='#' tabIndex='-1' aria-disabled="true">Disabled</Link>
-        </li> */}
+        
       </ul>
-      {/* <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form> */}
     </div>
   </div>
 </nav>
       </div>
     )
-  }
+  
 }
 
 export default Navbar;

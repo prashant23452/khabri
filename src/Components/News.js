@@ -7,16 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 
 export class News extends Component {
-  static defaultProps ={
-     country: 'in',
-     pageSize: 8,
-     category: 'general'
-  }
-  static propTypes ={
-     country: PropTypes.string,
-     pageSize: PropTypes.number,
-     category:PropTypes.string
-  }
+  
   articles =[];
   capitalizeFirstLetter = (string) =>{
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -25,11 +16,12 @@ export class News extends Component {
 
   constructor(props){
     super(props);
-    console.log("Hello I am constructor from news component");
+    
     this.state={
-      articles: this.articles,
-      loading: false,
-      page: 1
+      articles: [],
+      loading: true,
+      page: 1,
+      totalResults:0
     }
     document.title= `${this.capitalizeFirstLetter(this.props.category)} - Khabri`;
   }
@@ -134,5 +126,14 @@ fetchMoreData = async() => {
     )
   }
 }
-
+News.defaultProps ={
+  country: 'in',
+  pageSize: 8,
+  category: 'general'
+}
+News.propTypes ={
+  country: PropTypes.string,
+  pageSize: PropTypes.number,
+  category:PropTypes.string
+}
 export default News;
